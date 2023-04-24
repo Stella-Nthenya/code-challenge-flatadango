@@ -1,17 +1,7 @@
 // an asynchronous function to read http request
 async function get_resource(url) {
-  try {
-    const response = await fetch(url);
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error(
-        `Server error occurred: ${response.status} ${response.statusText}`
-      );
-    }
-  } catch (error) {
-    throw new Error(`Error occurred: ${error.toString()}`);
-  }
+  const response = await fetch(url);
+  return response.json();
 }
 
 // variables
